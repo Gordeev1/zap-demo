@@ -1,4 +1,4 @@
-import { FC, useCallback } from 'react';
+import { ChangeEventHandler, FC, useCallback } from 'react';
 import { PaginationSizeComponentPropsInterface } from './component-props.interface';
 
 const defaultOptions = [10, 25, 50];
@@ -17,7 +17,10 @@ export const PaginationSizeComponent: FC<PaginationSizeComponentPropsInterface> 
 		[],
 	);
 
-	const handleChange = useCallback((e) => onValueChange(Number(e.target.value)), [onValueChange]);
+	const handleChange = useCallback<ChangeEventHandler<HTMLSelectElement>>(
+		(e) => onValueChange(Number(e.target.value)),
+		[onValueChange],
+	);
 
 	return (
 		<select value={value} onChange={handleChange}>
