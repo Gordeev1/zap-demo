@@ -1,5 +1,19 @@
 {
     "error": {
         "generic": "Something went wrong"
+    },
+    "payout": {
+        "main": {
+            "title": "Payouts"
+        },
+        "table": {
+            "title": "Payout history"
+        },
+        "fields": {
+            "dateAndTime": "Date & Time",
+            "status": "Status",
+            "value": "Value",
+            "username": "From"
+        }
     }
 }

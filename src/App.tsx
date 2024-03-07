@@ -1,5 +1,7 @@
+import { PayoutMainComponent } from './modules/payout/main/component';
+
 function App() {
-	return null;
+	return <PayoutMainComponent />;
 }
 
 export default App;
