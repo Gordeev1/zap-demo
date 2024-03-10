@@ -1,42 +1,52 @@
 import { useCallback } from 'react';
+import { TableBody, TableHeader } from 'react-aria-components';
 import { Cell, Header, HeaderGroup, Row, flexRender } from '@tanstack/react-table';
 import { TableComponentPropsInterface } from './component-props.interface';
+import { TableStyled } from './styled';
 
 export function TableComponent<T>({ source }: TableComponentPropsInterface<T>) {
 	const renderHeader = useCallback(
 		(header: Header<T, unknown>) => (
-			<th key={header.id}>
+			<TableStyled.Column key={header.id} isRowHeader>
 				{header.isPlaceholder
 					? null
 					: flexRender(header.column.columnDef.header, header.getContext())}
-			</th>
+			</TableStyled.Column>
 		),
 		[],
 	);
 
 	const renderHeaderGroup = useCallback(
 		(headerGroup: HeaderGroup<T>) => (
-			<tr key={headerGroup.id}>{headerGroup.headers.map(renderHeader)}</tr>
+			<TableStyled.Row key={headerGroup.id}>
+				{headerGroup.headers.map(renderHeader)}
+			</TableStyled.Row>
 		),
 		[renderHeader],
 	);
 
 	const renderCell = useCallback(
 		(cell: Cell<T, unknown>) => (
-			<th key={cell.id}>{flexRender(cell.column.columnDef.cell, cell.getContext())}</th>
+			<TableStyled.Cell key={cell.id}>
+				{flexRender(cell.column.columnDef.cell, cell.getContext())}
+			</TableStyled.Cell>
 		),
 		[],
 	);
 
 	const renderRow = useCallback(
-		(row: Row<T>) => <tr key={row.id}>{row.getVisibleCells().map(renderCell)}</tr>,
+		(row: Row<T>) => (
+			<TableStyled.Row key={row.id}>{row.getVisibleCells().map(renderCell)}</TableStyled.Row>
+		),
 		[renderCell],
 	);
 
 	return (
-		<table>
-			<thead>{source.getHeaderGroups().map(renderHeaderGroup)}</thead>
-			<tbody>{source.getRowModel().rows.map(renderRow)}</tbody>
-		</table>
+		<TableStyled.Container>
+			<TableStyled.Table>
+				<TableHeader>{source.getHeaderGroups().map(renderHeaderGroup)}</TableHeader>
+				<TableBody>{source.getRowModel().rows.map(renderRow)}</TableBody>
+			</TableStyled.Table>
+		</TableStyled.Container>
 	);
 }
