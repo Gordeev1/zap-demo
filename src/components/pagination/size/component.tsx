@@ -1,30 +1,14 @@
-import { ChangeEventHandler, FC, useCallback } from 'react';
+import { FC } from 'react';
+import { useLocalizationResources } from '@/libs/localization/resources.hook';
+import { SelectComponent } from '@/components/select/component';
 import { PaginationSizeComponentPropsInterface } from './component-props.interface';
 
 const defaultOptions = [10, 25, 50];
 
 export const PaginationSizeComponent: FC<PaginationSizeComponentPropsInterface> = ({
-	value,
-	onValueChange,
 	options = defaultOptions,
+	...props
 }) => {
-	const renderOption = useCallback(
-		(option: number) => (
-			<option key={option} value={option}>
-				{option}
-			</option>
-		),
-		[],
-	);
-
-	const handleChange = useCallback<ChangeEventHandler<HTMLSelectElement>>(
-		(e) => onValueChange(Number(e.target.value)),
-		[onValueChange],
-	);
-
-	return (
-		<select value={value} onChange={handleChange}>
-			{options.map(renderOption)}
-		</select>
-	);
+	const { t } = useLocalizationResources();
+	return <SelectComponent label={t('pagination.size.label')} options={options} {...props} />;
 };

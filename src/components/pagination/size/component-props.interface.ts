@@ -1,7 +1,3 @@
-import { InputHTMLAttributes } from 'react';
+import { SelectComponentPropsInterface } from '@/components/select/component-props.interface';
 
-export interface PaginationSizeComponentPropsInterface
-	extends Omit<InputHTMLAttributes<'select'>, 'onChange'> {
-	onValueChange: (next: number) => void;
-	options?: number[];
-}
+export interface PaginationSizeComponentPropsInterface extends SelectComponentPropsInterface {}

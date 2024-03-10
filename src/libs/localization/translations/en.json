@@ -14,6 +14,10 @@
             "status": "Status",
             "value": "Value",
             "username": "From"
+    },
+    "pagination": {
+        "size": {
+            "label": "Show:"
         }
     }
 }

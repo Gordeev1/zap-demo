@@ -1,6 +1,8 @@
 import { FC, useCallback } from 'react';
-import ReactPaginate, { ReactPaginateProps } from 'react-paginate';
+import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
+import { ReactPaginateProps } from 'react-paginate';
 import { PaginationPageComponentPropsInterface } from './component-props.interface';
+import { PaginationPageStyled } from './styled';
 
 export const PaginationPageComponent: FC<PaginationPageComponentPropsInterface> = ({
 	initialValue,
@@ -13,17 +15,16 @@ export const PaginationPageComponent: FC<PaginationPageComponentPropsInterface> 
 	);
 
 	return (
-		<div>
-			<ReactPaginate
-				initialPage={initialValue}
-				breakLabel='...'
-				nextLabel='> >'
-				previousLabel='<'
-				marginPagesDisplayed={1}
-				pageRangeDisplayed={3}
-				pageCount={lastPage}
-				onPageChange={handleChange}
-			/>
-		</div>
+		<PaginationPageStyled.Main
+			initialPage={initialValue}
+			breakLabel='...'
+			previousLabel={<ChevronLeftIcon width={20} height={20} />}
+			nextLabel={<ChevronRightIcon width={20} height={20} />}
+			marginPagesDisplayed={1}
+			pageRangeDisplayed={3}
+			pageCount={lastPage}
+			disableInitialCallback
+			onPageChange={handleChange}
+		/>
 	);
 };
