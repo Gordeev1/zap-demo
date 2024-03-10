@@ -1,5 +1,5 @@
 import { FC, useCallback } from 'react';
-import { ListBox, SelectValue } from 'react-aria-components';
+import { Label, ListBox, SelectValue } from 'react-aria-components';
 import { CaretDownIcon } from '@radix-ui/react-icons';
 import { TypographyComponent } from '@/components/typography/component';
 import { ButtonComponent } from '@/components/button/component';
@@ -32,9 +32,11 @@ export const SelectComponent: FC<SelectComponentPropsInterface> = ({
 			onSelectionChange={handleChange}
 			isDisabled={!options || !options.length}>
 			{label && (
-				<TypographyComponent $size='md' $color='font-secondary' $weight='medium'>
-					{label}
-				</TypographyComponent>
+				<Label>
+					<TypographyComponent $size='md' $color='font-secondary' $weight='medium'>
+						{label}
+					</TypographyComponent>
+				</Label>
 			)}
 			<ButtonComponent $variant='outlined' $shape='base'>
 				<SelectValue />

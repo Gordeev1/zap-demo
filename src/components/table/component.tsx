@@ -4,7 +4,7 @@ import { Cell, Header, HeaderGroup, Row, flexRender } from '@tanstack/react-tabl
 import { TableComponentPropsInterface } from './component-props.interface';
 import { TableStyled } from './styled';
 
-export function TableComponent<T>({ source }: TableComponentPropsInterface<T>) {
+export function TableComponent<T>({ source, ...props }: TableComponentPropsInterface<T>) {
 	const renderHeader = useCallback(
 		(header: Header<T, unknown>) => (
 			<TableStyled.Column key={header.id} isRowHeader>
@@ -43,7 +43,7 @@ export function TableComponent<T>({ source }: TableComponentPropsInterface<T>) {
 
 	return (
 		<TableStyled.Container>
-			<TableStyled.Table>
+			<TableStyled.Table {...props}>
 				<TableHeader>{source.getHeaderGroups().map(renderHeaderGroup)}</TableHeader>
 				<TableBody>{source.getRowModel().rows.map(renderRow)}</TableBody>
 			</TableStyled.Table>

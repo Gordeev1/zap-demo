@@ -24,12 +24,14 @@ export const PayoutMainComponent = () => {
 
 	const { t } = useLocalizationResources();
 
+	const tableTitleId = 'table-title';
+
 	return (
 		<LayoutPageComponent title={t('payout.main.title')}>
 			<PayoutMainStyled.Header>
 				<PayoutMainStyled.HeaderTitleContainer>
 					<PayoutMainStyled.HeaderTitleHighlight />
-					<TypographyComponent as='h2' $size='lg' $weight='bold'>
+					<TypographyComponent id={tableTitleId} as='h2' $size='lg' $weight='bold'>
 						{t('payout.table.title')}
 					</TypographyComponent>
 				</PayoutMainStyled.HeaderTitleContainer>
@@ -41,6 +43,7 @@ export const PayoutMainComponent = () => {
 				/>
 			</PayoutMainStyled.Header>
 			<PayoutTableComponent
+				aria-labelledby={tableTitleId}
 				data={data}
 				metadata={metadata}
 				pagination={pagination}

@@ -16,6 +16,7 @@ export const PayoutTableComponent: FC<PayoutTableComponentPropsInterface> = ({
 	metadata,
 	pagination,
 	onPaginationChange,
+	...props
 }) => {
 	const { t } = useLocalizationResources();
 
@@ -88,7 +89,7 @@ export const PayoutTableComponent: FC<PayoutTableComponentPropsInterface> = ({
 
 	return (
 		<>
-			<TableComponent source={table} />
+			<TableComponent source={table} {...props} />
 			{paginationEnabled ? (
 				<PayoutTableStyled.PaginationContainer>
 					<PaginationPageComponent
