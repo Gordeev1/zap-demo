@@ -17,7 +17,7 @@ export const SelectStyled = {
 	`,
 
 	PopoverListItem: styled(ListBoxItem)`
+		${({ theme }) => buttonPrimitive({ theme, $variant: 'plain', $shape: 'plain' })}
 		padding: 0;
-		${({ theme }) => buttonPrimitive({ theme, $variant: 'plain', $shape: 'base' })}
 	`,
 };
