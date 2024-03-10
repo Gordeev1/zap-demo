@@ -14,7 +14,7 @@ export const buttonPrimitive = ({
             display: flex;
             align-items: center;
             justify-content: space-evenly;
-            transition: opacity .25s ease-in-out, background-color .25s ease-in-out;
+            transition: opacity .25s ease-in-out;
             
             &:focus, &:focus-visible { outline: none };
             
