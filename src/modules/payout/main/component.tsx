@@ -4,6 +4,7 @@ import { LayoutPageComponent } from '@/components/layout/page/component';
 import { useLocalizationResources } from '@/libs/localization/resources.hook';
 import { TypographyComponent } from '@/components/typography/component';
 import { SpinnerComponent } from '@/components/spinner/component';
+import { usePayoutMainScrollPostion } from './scroll-position.hook';
 import { usePayoutMainData } from './data.hook';
 import { PayoutMainStyled } from './styled';
 
@@ -13,6 +14,8 @@ export const PayoutMainComponent = () => {
 		pageIndex: 0,
 		pageSize: 10,
 	});
+
+	usePayoutMainScrollPostion(pagination);
 
 	const [searchQuery, handleSearchQueryChange] = useState('');
 
