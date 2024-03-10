@@ -8,6 +8,7 @@
     "build": "tsc && vite build",
     "validate/lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "validate/typescript": "npx tsc --noEmit",
+    "validate/e2e": "npx playwright test",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -27,7 +28,9 @@
     "styled-reset": "^4.5.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.42.1",
     "@types/lodash": "^4.14.202",
+    "@types/node": "^20.11.25",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@typescript-eslint/eslint-plugin": "^7.0.2",
