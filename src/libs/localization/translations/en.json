@@ -14,6 +14,11 @@
             "status": "Status",
             "value": "Value",
             "username": "From"
+        },
+        "status": {
+            "Completed": "Paid",
+            "Pending": "Pending"
+        }
     },
     "pagination": {
         "size": {
