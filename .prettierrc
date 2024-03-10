@@ -8,5 +8,5 @@
 	"bracketSpacing": true,
 	"arrowParens": "always",
 	"useTabs": true,
-	"tabWidth": 2
+	"tabWidth": 4
 }
