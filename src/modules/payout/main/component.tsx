@@ -4,7 +4,6 @@ import { LayoutPageComponent } from '@/components/layout/page/component';
 import { useLocalizationResources } from '@/libs/localization/resources.hook';
 import { TypographyComponent } from '@/components/typography/component';
 import { SpinnerComponent } from '@/components/spinner/component';
-import { PayoutTableComponent } from '../table/component';
 import { usePayoutMainData } from './data.hook';
 import { PayoutMainStyled } from './styled';
 
@@ -42,7 +41,8 @@ export const PayoutMainComponent = () => {
 					placeholder={t('payout.main.search-placeholder')}
 				/>
 			</PayoutMainStyled.Header>
-			<PayoutTableComponent
+			<PayoutMainStyled.Table
+				$isLoading={isLoading}
 				aria-labelledby={tableTitleId}
 				data={data}
 				metadata={metadata}

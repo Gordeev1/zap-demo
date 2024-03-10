@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { responsiveUtils } from '@/components/responsive/utils';
+import { PayoutTableComponent } from '../table/component';
 
 export const PayoutMainStyled = {
 	Header: styled.div`
@@ -28,6 +29,25 @@ export const PayoutMainStyled = {
 		border-radius: ${(p) => p.theme.radius.r1}px;
 		background-color: ${(p) => p.theme.colors.accent};
 		margin-right: ${(p) => p.theme.spacing.s3}px;
+	`,
+	Table: styled(PayoutTableComponent)<{ $isLoading?: boolean }>`
+		${(p) =>
+			p.$isLoading &&
+			`
+			&::before {
+				content: "";
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				background-color: ${p.theme.colors.background};
+				z-index: 1;
+				opacity: .25;
+				cursor: progress;
+				border-radius: ${p.theme.radius.r2}px;
+			}
+		`};
 	`,
 	Footer: styled.div`
 		display: flex;

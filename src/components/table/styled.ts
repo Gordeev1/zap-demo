@@ -11,6 +11,7 @@ export const TableStyled = {
 	`,
 	Table: styled(Table)`
 		flex: 1;
+		position: relative;
 		outline: none;
 		border-spacing: 0;
 		forced-color-adjust: none;
