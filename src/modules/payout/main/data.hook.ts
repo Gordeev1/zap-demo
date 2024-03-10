@@ -14,7 +14,7 @@ export const usePayoutMainData = ({
 
 	const isSearchMode = searchQuery && searchQuery.length > 1;
 
-	const { data: response, isLoading } = useQuery<
+	const { data: response, isFetching } = useQuery<
 		Awaited<
 			| ReturnType<typeof apiResourcePayout.search>
 			| ReturnType<typeof apiResourcePayout.payouts>
@@ -26,7 +26,7 @@ export const usePayoutMainData = ({
 					queryFn: () => apiResourcePayout.search(searchQuery),
 					keepPreviousData: true,
 					refetchOnWindowFocus: false,
-			}
+			  }
 			: {
 					queryKey: ['payout-list', pagination],
 					queryFn: () =>
@@ -36,7 +36,7 @@ export const usePayoutMainData = ({
 						}),
 					keepPreviousData: true,
 					refetchOnWindowFocus: false,
-			},
+			  },
 	);
 
 	const isSearchResult = Array.isArray(response);
@@ -44,7 +44,7 @@ export const usePayoutMainData = ({
 	return {
 		data: response ? (isSearchResult ? response : response.data) : undefined,
 		metadata: response && !isSearchResult ? response.metadata : undefined,
-		isLoading,
+		isLoading: isFetching,
 		isSearchMode,
 	};
 };
