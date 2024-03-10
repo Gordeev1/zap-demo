@@ -26,7 +26,7 @@ export const usePayoutMainData = ({
 					queryFn: () => apiResourcePayout.search(searchQuery),
 					keepPreviousData: true,
 					refetchOnWindowFocus: false,
-			  }
+			}
 			: {
 					queryKey: ['payout-list', pagination],
 					queryFn: () =>
@@ -36,7 +36,7 @@ export const usePayoutMainData = ({
 						}),
 					keepPreviousData: true,
 					refetchOnWindowFocus: false,
-			  },
+			},
 	);
 
 	const isSearchResult = Array.isArray(response);
