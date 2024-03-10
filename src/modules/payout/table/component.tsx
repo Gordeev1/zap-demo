@@ -64,7 +64,7 @@ export const PayoutTableComponent: FC<PayoutTableComponentPropsInterface> = ({
 									$weight='bold'
 									$size='md'
 									$color='font-secondary'>
-									{value}
+									{value || '-'}
 								</TypographyComponent>
 							);
 					}

@@ -6,5 +6,5 @@ export interface PayoutInterface {
 	dateAndTime: DateISO;
 	status: PayoutStatusEnum;
 	value: string;
-	username: string;
+	username?: string;
 }
