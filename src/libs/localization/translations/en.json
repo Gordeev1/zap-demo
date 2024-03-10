@@ -4,7 +4,9 @@
     },
     "payout": {
         "main": {
-            "title": "Payouts"
+            "title": "Payouts",
+            "empty": "No results found",
+            "search-placeholder": "Search by sender"
         },
         "table": {
             "title": "Payout history"
