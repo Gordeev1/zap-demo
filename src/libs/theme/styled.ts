@@ -6,19 +6,19 @@ export const ThemeStyled = createGlobalStyle`
 
     @font-face {
         font-family: 'Inter';
-        src: local('Inter-Regular'), url(@/assets/fonts/Inter-Regular.ttf) format('truetype');
+        src: local('Inter-Regular'), url('src/assets/fonts/Inter-Regular.ttf') format('truetype');
         font-weight: 400;
         font-style: normal;
     }
     @font-face {
         font-family: 'Inter';
-        src: local('Inter-Medium'), url(@/assets/fonts/Inter-Medium.ttf) format('truetype');
+        src: local('Inter-Medium'), url('src/assets/fonts/Inter-Medium.ttf') format('truetype');
         font-weight: 500;
         font-style: normal;
     }
     @font-face {
         font-family: 'Inter';        
-        src: local('Inter-SemiBold'), url(@/assets/fonts/Inter-SemiBold.ttf) format('truetype');
+        src: local('Inter-SemiBold'), url('src/assets/fonts/Inter-SemiBold.ttf') format('truetype');
         font-weight: 600;
         font-style: normal;
     }
