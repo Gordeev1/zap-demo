@@ -15,13 +15,18 @@ export const TableStyled = {
 		outline: none;
 		border-spacing: 0;
 		forced-color-adjust: none;
-		table-layout: fixed;
 	`,
 	Cell: styled(TableCell)`
-		min-width: 70px;
+		width: 170px;
+		min-width: 170px;
 		vertical-align: middle;
-		padding: 0 ${(p) => p.theme.spacing.s4}px;
 		outline-color: ${(p) => p.theme.colors.accent};
+		&:first-child {
+			padding-left: ${(p) => p.theme.spacing.s4}px;
+		}
+		&:last-child {
+			padding-right: ${(p) => p.theme.spacing.s4}px;
+		}
 	`,
 	Column: styled(Column)<TypographyProps>`
 		height: 44px;
